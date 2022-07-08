@@ -5,6 +5,7 @@ const ImageStyled = styled.img`
   height: 10rem;
   width: 202px;
   margin: 0 auto;
+  object-fit: contain;
 `;
 
 const Image = ({ src, alt }) => (
