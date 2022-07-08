@@ -10,12 +10,10 @@ const Input = styled.input`
   outline: none;
 `;
 
-const SearchBar = ({ placeholder }) => {
-  const handleOnChange = (e) => {
-    console.log(e.target.value);
-  };
-
-  return (<Input placeholder={placeholder} onChange={(e) => handleOnChange(e)} />)
+const SearchBar = ({ placeholder, setInputValue }) => {
+  const handleOnChange = (e) => setInputValue(e.target.value.trim());
+  
+  return <Input placeholder={placeholder} onChange={(e) => handleOnChange(e)} />;
 };
 
 export default SearchBar;

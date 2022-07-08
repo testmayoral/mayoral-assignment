@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import Card from 'components/Card';
@@ -20,19 +20,32 @@ const ListStyled = styled.div`
 
 const List = () => {
   const { clothingData: response, error, loading } = useClothing();
-  const { data, totalItems } = response;
+  const [filteredData, setFilteredData] = useState({});
+  const [inputValue, setInputValue] = useState(null);
+
+  useEffect(() => {
+    const { data } = response;
+    const newData =
+      data?.filter(({ name }) => {
+        return name?.toLowerCase().includes(inputValue?.toLowerCase());
+      }) || [];
+
+    if (!inputValue) {
+      setFilteredData(response);
+    } else {
+      setFilteredData({ data: newData, totalItems: newData.length });
+    }
+  }, [response, inputValue]);
 
   return (
     <Container>
-      <SearchBar placeholder="Buscar" />
+      <SearchBar placeholder="Buscar" setInputValue={setInputValue} />
       <ListStyled>
-        {totalItems > 0 &&
-          data.map((item, index) => (
-            <Card
-              key={index}
-              {...item}
-            />
-          ))}
+        {filteredData?.totalItems > 0 ? (
+          filteredData?.data?.map((item, index) => <Card key={index} {...item} />)
+        ) : (
+          <div>No hay elementos que coincidan</div>
+        )}
       </ListStyled>
     </Container>
   );
