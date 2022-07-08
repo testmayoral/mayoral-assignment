@@ -1,7 +1,9 @@
-import { NextPage } from "next";
+import { NextPage } from 'next';
+
+import List from '../components/List';
 
 const HomePage: NextPage = () => {
-  return <div>Hello World!</div>;
+  return <List />;
 };
 
 export default HomePage;

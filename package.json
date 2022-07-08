@@ -9,11 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.27.2",
+    "lodash": "^4.17.21",
     "micro": "^9.3.4",
     "next": "12.1.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "sharp": "^0.30.4"
+    "sharp": "^0.30.4",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@babel/core": "^7.18.0",
