@@ -16,12 +16,13 @@ const Container = styled.div`
 `;
 
 const NameTag = styled.div`
-  margin: 0 1rem;
+  margin: 1rem auto;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  width: 202px;
+  width: 182px;
   margin-top: 1rem;
+  text-align: center;
 `;
 
 const PriceTag = styled.div`
