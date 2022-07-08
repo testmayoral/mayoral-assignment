@@ -20,8 +20,8 @@ export default {
 			id: "103",
 			name: "Polo manga larga unicolor",
 			price: "10,00",
-			newPrice: "9,80",
-			discount: "10%",
+			newPrice: null,
+			discount: null,
 			currency: "€",
 			imageUrl: "https://www.projectpieta.com/wp-content/uploads/2022/02/polo_ml_crema_mano.jpg",
 		}, {
@@ -40,6 +40,22 @@ export default {
 			discount: "10%",
 			currency: "€",
 			imageUrl: "https://www.projectpieta.com/wp-content/uploads/2022/02/denim_negro.jpg",
-		}]
+		}, {
+			id: "106",
+			name: "Polo manga larga Blanco",
+			price: "10,00",
+			newPrice: null,
+			discount: null,
+			currency: "€",
+			imageUrl: "https://www.projectpieta.com/wp-content/uploads/2022/02/denim_negro.jpg",
+		}, {
+			id: "107",
+			name: "Polo manga larga Blanco",
+			price: "10,00",
+			newPrice: "9,80",
+			discount: "10%",
+			currency: "€",
+      imageUrl: "https://modastentacion.com/6-large_default/polo-manga-larga-estampado-para-bebe-nino.jpg",
+    }]
 	})
 }

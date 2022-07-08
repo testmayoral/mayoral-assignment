@@ -6,6 +6,9 @@ const ButtonStyled = styled.button`
   width: 4rem;
   height: 2rem;
   margin-top: 1rem;
+  background-color: #3471c3;
+  color: white;
+  border-radius: 4px;
 `;
 
 const Button = ({ text, onClick }) => {

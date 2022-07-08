@@ -8,9 +8,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 242px;
-  height: 400px;
+  width: 300px;
+  height: 450px;
   border: 1px solid #2596be;
+  margin-right: 1rem;
+  box-sizing: border-box;
 `;
 
 const NameTag = styled.div`
@@ -25,6 +27,7 @@ const NameTag = styled.div`
 const PriceTag = styled.div`
   text-align: center;
   margin: 2rem 0.5rem 0.5rem 0.5rem;
+  text-decoration: ${({ hasLine }) => (hasLine ? 'line-through' : 'none')};
 `;
 
 const NewPriceTag = styled.div`
@@ -37,15 +40,28 @@ const Label = styled.div`
   margin-top: 1rem;
 `;
 
-const Card = ({ name, price, newPrice, currency, imageUrl  }) => {
+const Card = ({ name, price, newPrice, currency, imageUrl, discount }) => {
+  const hasDiscount = discount ? true : false;
+
   return (
     <Container>
       <Image src={imageUrl} alt="" />
       <NameTag>{name}</NameTag>
-      <PriceTag>{price} {currency}</PriceTag>
-      <NewPriceTag>{newPrice}</NewPriceTag>
+      <PriceTag hasLine={hasDiscount}>
+        {price} {currency}
+      </PriceTag>
+      {hasDiscount && (
+        <NewPriceTag>
+          {newPrice} {currency}(-{discount})
+        </NewPriceTag>
+      )}
       <Label>más colores</Label>
-      <Button text='Añadir' onClick={() => {console.log("hola")}} />
+      <Button
+        text="Añadir"
+        onClick={() => {
+          console.log('hola');
+        }}
+      />
     </Container>
   );
 };
