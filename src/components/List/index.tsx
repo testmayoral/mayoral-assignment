@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Card from 'components/Card';
 import SearchBar from 'components/SearchBar';
+import SortButton from 'components/SortButton';
 import { useClothing } from 'hooks/useClothing';
 
 const Container = styled.div`
@@ -16,6 +17,12 @@ const ListStyled = styled.div`
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: flex-start;
+`;
+
+const Header = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const List = () => {
@@ -39,7 +46,13 @@ const List = () => {
 
   return (
     <Container>
-      <SearchBar placeholder="Buscar" setInputValue={setInputValue} />
+      <Header>
+        <SearchBar placeholder="Buscar" setInputValue={setInputValue} />
+        <div style={{ marginRight: '12rem' }}>
+          <SortButton text="-" clothing={filteredData} setFilteredData={setFilteredData} />
+          <SortButton text="+" clothing={filteredData} setFilteredData={setFilteredData} />
+        </div>
+      </Header>
       <ListStyled>
         {filteredData?.totalItems > 0 ? (
           filteredData?.data?.map((item, index) => <Card key={index} {...item} />)

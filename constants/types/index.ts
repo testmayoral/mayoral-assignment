@@ -2,7 +2,7 @@ export interface Clothing {
   readonly id: string;
   readonly name: string;
   readonly price: string;
-  readonly newPrice: string;
+  readonly newPrice: number;
   readonly currency: string;
   readonly imageUrl: string;
 }
